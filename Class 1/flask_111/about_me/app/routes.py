@@ -6,18 +6,12 @@
 from about_me.app import app
 
 
-@app.route('/')
+@app.route('/aboutme')
 def index(): 
-    dictionary = {
+    data = {
         "first_name": "Charles",
         "last_name": "Parmley",
         "hobby": "Rollerblading"
     }
 
-    return dictionary
-
-
-
-if __name__ == '__main__':
-    app.debug = True
-    app.run(host="0.0.0.0")
+    return data
