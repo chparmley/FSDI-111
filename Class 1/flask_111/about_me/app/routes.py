@@ -1,7 +1,6 @@
 #!/user/bin/env python3
 # -*- coding: utf8 -*-
 """Route Definitions"""
-from flask import jsonify
 # from app module import the app variable (object)
 from about_me.app import app
 
@@ -14,4 +13,4 @@ def about():
         "hobby": "Rollerblading"
     }
 
-    return jsonify(me)
+    return(me)

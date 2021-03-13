@@ -1,0 +1,28 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}About me {% endblock %}
+
+{% block navbar %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+    <a class="navbar-brand" href="#">Inventory Manager</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-link active" href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{{ url_for('all_products') }}">Active Products</a>
+            <a class="nav-link" href="{{ url_for('inactive_products') }}">Inactive Products</a>
+        </div>
+    </div>
+</nav>
+{% endblock navbar %}
+
+{% block content %}
+
+    {% block footer %}
+        <footer class="pl-3">
+        </footer>
+    {% endblock footer %}
+
+{% endblock content %}

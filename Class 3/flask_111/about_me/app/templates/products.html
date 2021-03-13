@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %} Active Products {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="mb-3">Active Products</h1>
+
+        <div class="border rounded border-dark w-50 mx-1">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Actz</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    
+                    {% for prod in products %}
+                    {% if prod[6] == "True"  or prod[6] == 1 %}
+                    
+                    {% if prod[3] <= 20 %}
+                        <tr class="table-danger">
+                    {% endif %}
+
+                    {% if prod[3] in range(21, 50 + 1, 1) %}
+                        <tr class="table-warning">
+                    {% endif %}
+
+                    {% if prod[3] > 50 %}
+                        <tr class="table-success">
+                    {% endif %}
+                                
+                            <th scope="row"><a href="{{ url_for('one_product', product_id=prod[0], _external=True) }}">{{prod[0]}}</a></td>
+                            <td>{{prod[1]}}</td>
+                            <td>{{"$%.2f"|format(prod[2])}}</td>
+                            <td>{{prod[3]}}</td>
+                            <td><a href="/product/{{prod[0]}}">Details</a> &nbsp | &nbsp <a href="/product/{{prod[0]}}/remove">Deactivate</a></td>
+                        </tr>
+                            {% endif %}
+                            {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    <hr class="mb-5">
+
+</div>
+{{ super() }}
+{% endblock content %}

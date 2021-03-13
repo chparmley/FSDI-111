@@ -14,6 +14,17 @@ def get_db():
         db = g._database = sqlite3.connect(DATABASE)
     return db
 
+def add_user():
+    command = '''INSERT INTO user("first_name", "last_name", "hobby", "bio") VALUES(?, ?, ?, ?);'''
+
+    fname = input('First Name: ')
+    lname = input('Last Name: ')
+    hobby = input('Hobby: ')
+    bio = input('Bio: ')
+
+    data = fname, lname, hobby, bio
+
+    cursor = get_db.execute(command, data)
 
 # Helper function to retrieve users
 def get_all_users():
