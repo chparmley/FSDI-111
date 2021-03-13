@@ -22,15 +22,15 @@
                     {% for prod in products %}
                     {% if prod[6] == "True"  or prod[6] == 1 %}
                     
-                    {% if prod[3] <= 20 %}
+                    {% if prod[3] <= 100 %}
                         <tr class="table-danger">
                     {% endif %}
 
-                    {% if prod[3] in range(21, 50 + 1, 1) %}
+                    {% if prod[3] in range(101, 499 + 1, 1) %}
                         <tr class="table-warning">
                     {% endif %}
 
-                    {% if prod[3] > 50 %}
+                    {% if prod[3] > 500 %}
                         <tr class="table-success">
                     {% endif %}
                                 
